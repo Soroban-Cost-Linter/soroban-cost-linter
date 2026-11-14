@@ -1,0 +1,28 @@
+# ==============================================================================
+# Soroban Cost Linter — Default Configuration (`soroban_cost.toml`)
+# ==============================================================================
+# Place this file in the root of your Soroban workspace or contract crate to
+# customize threshold parameters and confidence-based default lint levels.
+
+[thresholds]
+# Maximum single-scope static memory or collection pre-allocation in bytes
+# before `large_memory_allocation` triggers.
+max_memory_alloc_bytes = 16384
+
+# Minimum loop nesting depth at which ledger storage reads/writes trigger
+# `nested_storage_iteration`.
+max_nested_loop_depth = 2
+
+# Maximum statically bounded loop iterations allowed to perform mutable
+# persistent storage writes before `unbounded_storage_writes` triggers.
+max_loop_storage_writes = 16
+
+[confidence]
+# Confidence scores assigned to each lint ("High", "Medium", "Low").
+# - High   -> defaults to `Warn`
+# - Medium -> defaults to `Allow` (opt-in via `#[warn(soroban_cost::...)]`)
+# - Low    -> defaults to `Allow` (opt-in via `#[warn(soroban_cost::...)]`)
+unbounded_storage_writes = "High"
+nested_storage_iteration = "High"
+excessive_host_calls = "Medium"
+large_memory_allocation = "Low"
