@@ -1,0 +1,9 @@
+[package]
+name = "soroban-cost-linter-ui-tests"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "ui_tests"
+path = "src/main.rs"
