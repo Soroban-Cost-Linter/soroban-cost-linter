@@ -1,0 +1,19 @@
+warning: Soroban authorization host call `require_auth()` executed repeatedly inside a loop
+  --> $DIR/main.rs:26:9
+   |
+LL |         caller.require_auth();
+   |         ^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: hoist `require_auth` outside the loop so authorization is verified once per entrypoint
+   = note: `#[warn(excessive_host_calls)]` on by default
+
+warning: Soroban cryptographic host call `sha256()` executed repeatedly inside a loop
+  --> $DIR/main.rs:27:23
+   |
+LL |         let _digest = env.crypto().sha256(payload);
+   |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: batch or pre-aggregate inputs before hashing/verifying so the host boundary is crossed once outside the loop
+
+warning: 2 warnings emitted
+
