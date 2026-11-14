@@ -1,0 +1,19 @@
+warning: static array allocation of 65536 elements exceeds safe Soroban scope limit (16384)
+  --> $DIR/main.rs:5:19
+   |
+LL |     let big_buf = [0u8; 65_536];
+   |                   ^^^^^^^^^^^^^
+   |
+   = help: reduce buffer size or process data in bounded chunks
+   = note: `#[warn(large_memory_allocation)]` on by default
+
+warning: pre-allocating capacity of 100000 elements exceeds safe Soroban scope limit (16384)
+  --> $DIR/main.rs:6:28
+   |
+LL |     let big_vec: Vec<u8> = Vec::with_capacity(100_000);
+   |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: use bounded batch sizes or paginated storage keys instead of large single-scope allocations
+
+warning: 2 warnings emitted
+
