@@ -18,7 +18,11 @@ We are actively seeking contributors for:
 3. **System Architecture:** Scaffolding the underlying Dylint plumbing and our `soroban-examples` testing matrix.
 
 ## 🚀 Getting Started
-*(Implementation instructions, Cargo setup, and Dylint installation steps will be published here in Phase 2 / Wave 8).*
+See the **[Developer User Guide & Installation Reference](docs/user_guide.md)** for full instructions on:
+- Installing `cargo-dylint` and `dylint-link`
+- Configuring `.cargo/config.toml` and `Cargo.toml` workspace metadata
+- Flagged vs. optimized Soroban code examples for all 4 core cost lints
+- Suppressing warnings (`#[allow(soroban_cost::...)]`) and opting into stricter lints (`#![warn(soroban_cost::...)]`)
 
 ## 🤝 Contributing
 If you are participating via the Drips Wave protocol, please ensure you are officially assigned to an issue on the Drips dashboard before opening a pull request. We adhere to a strict "Definition of Done" for all merged code.
