@@ -1,0 +1,19 @@
+warning: Soroban ledger storage `get()` inside nested loop (depth = 2) causes quadratic XDR and CPU scaling
+  --> $DIR/main.rs:29:23
+   |
+LL |             let val = env.storage().persistent().get("val").unwrap_or(0);
+   |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: load the ledger entry once into a local variable before the outer loop, compute in WASM memory, and write once after the outer loop finishes
+   = note: `#[warn(nested_storage_iteration)]` on by default
+
+warning: Soroban ledger storage `set()` inside nested loop (depth = 2) causes quadratic XDR and CPU scaling
+  --> $DIR/main.rs:30:13
+   |
+LL |             env.storage().persistent().set("val", &(val + i + j));
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: load the ledger entry once into a local variable before the outer loop, compute in WASM memory, and write once after the outer loop finishes
+
+warning: 2 warnings emitted
+
