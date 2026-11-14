@@ -1,0 +1,11 @@
+warning: mutable Soroban ledger storage operation inside an unbounded or dynamic loop
+  --> $DIR/main.rs:28:9
+   |
+LL |         env.storage().persistent().set("data", item);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: accumulate state in WASM memory inside the loop and perform a single `env.storage()...set()` after the loop completes
+   = note: `#[warn(unbounded_storage_writes)]` on by default
+
+warning: 1 warning emitted
+
